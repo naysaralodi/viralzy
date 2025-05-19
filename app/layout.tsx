@@ -1,8 +1,11 @@
+
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./../styles/globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import { usePathname } from "next/navigation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,9 +27,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // const pathname = usePathname();
+
+  // const noLayoutRoutes = ["/login", "/register"];
+  // const hideLayout = noLayoutRoutes.includes(pathname);
+
   return (
-    <html lang="pt" >
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+    <html lang="pt">
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
         
         <Header />
 
@@ -34,7 +42,7 @@ export default function RootLayout({
           {children}
         </main>
 
-        <Footer />
+         <Footer />
 
       </body>
     </html>
